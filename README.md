@@ -17,10 +17,10 @@ So I can call it from everywhere.
 
 For each "binary" I create this way, I have to create a docker file that inherits from the official image and adds and runs the entrypoint script.
 
-Each wrapper shell script has to pass 
-- the uid/gid
-- USER and HOME env's for the current user
-- current working dir and
+Each wrapper shell script has to
+- pass the uid/gid
+- pass USER and HOME env's for the current user
+- pass the current working dir and
 - mount the user's home
 
 ### Content of this repository
