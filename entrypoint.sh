@@ -22,16 +22,18 @@ function getGroupById(){
 if [ -z "$GID" ] || [ -z "$USER" ]; then
     exec "$@"
 else
-    # check if user already exists and use this user or create a new one
-    existingUser=$(getUserById)
-    if [ -z "$existingUser" ]; then
-        createUser
-    fi
-
     # check if group already exist and use this group or create a new one
     existingGroup=$(getGroupById)
     if [ -z "$existingGroup" ]; then
         createGroup
+        existingGroup=$(getGroupById)
+    fi
+
+    # check if user already exists and use this user or create a new one
+    existingUser=$(getUserById)
+    if [ -z "$existingUser" ]; then
+        createUser
+        existingUser=$(getUserById)
     fi
 
     # execute as non-root user
