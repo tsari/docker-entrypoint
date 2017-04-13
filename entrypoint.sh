@@ -37,5 +37,5 @@ else
     fi
 
     # execute as non-root user
-    exec sudo --preserve-env -u "$existingUser" "$@"
+    exec sudo -E -u "$existingUser" "$@"
 fi
